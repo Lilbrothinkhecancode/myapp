@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		%sveltekit.head%
+		<button class="main-button theme-button" on:click={navigateToMainPage}></button>
+		<button class="button-container theme-button"></button>
+	<style>
+		.button {
+		  color: #fff;
+		  border: none;
+		  padding: 10px 20px;
+		  border-radius: 5px;
+		  margin-right: 10px;
+		  transition: background-color 0.5s; 
+		}
+
+
+	  </style>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+		
+	</body>
+</html>

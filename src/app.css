@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; 
+    margin-bottom: 20px;
+    padding: 2px 2px;
+}
+    .button-container button {
+        transition: background-color 0.5s;
+      }
+    
+      .button-container button:hover {
+        background-color: darkblue;
+      }
+  
+
+
+.main-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2px;
+    color: white;
+    font-size: 35px;
+    padding: 2px 2px;
+}
+
+.main-button button {
+    transition: background-color 0.5s;
+}
+
+.main-button button:hover {
+    background-color: darkblue;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+  
