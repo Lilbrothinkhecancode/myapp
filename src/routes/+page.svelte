@@ -1,20 +1,11 @@
 <script>
     import { IsLoggedIn } from './stores.js';
-    import { getUserId } from '/home/ulyger/html/myapp/src/utils/auth.js';
     import { logOut } from '/home/ulyger/html/myapp/src/utils/auth.js';
     import { goto } from '$app/navigation';
     import buttonTextColor from './themes.svelte';
     import ThemeToggle from './themes.svelte';
     import humanize from 'humanize-plus';
     export let data;
-
-    function navigateToEditPage(id) {
-      try {
-      goto('/jobs/[records]' + id);
-  }   catch (error) {
-      console.error('Error:', error);
-  }
-    }
 
     function navigateToMainPage() {
         goto('/')
@@ -95,11 +86,6 @@
         <div class="mt-4 ">
           {job.description.slice(0, 240)}...
         </div>
-        {#if $IsLoggedIn && job.user === getUserId()}
-      <button on:click={() => navigateToEditPage(job.id)}>
-        Edit
-      </button>
-    {/if}
       </div>
     {/each}
   </div>

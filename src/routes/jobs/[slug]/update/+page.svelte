@@ -1,82 +1,60 @@
 <script>
-    export let id;
-    import { page } from '$app/stores';
-    import { onMount } from 'svelte';
-    import { goto } from '$app/navigation';
-    import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
-    import { getUserId } from '/home/ulyger/html/myapp/src/utils/auth.js';
+  export let job;
+  console.log("Data received in page.svelte: job =", job);
+  import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
+  import { getTokenFromLocalStorage } from '/home/ulyger/html/myapp/src/utils/auth.js';
+  import { goto } from '$app/navigation';
 
-    let jobId;
-  let user;
-  let title;
-  let minAnnualCompensation;
-  let maxAnnualCompensation;
-  let employer;
-  let location;
-  let description;
-  let requirements;
-  let applicationInstructions;
+  let id = job?.id;
+  let title = job?.title;
+  let minAnnualCompensation = job?.minAnnualCompensation;
+  let maxAnnualCompensation = job?.maxAnnualCompensation;
+  let employer = job?.employer;
+  let location = job?.location;
+  let description = job?.description;
+  let requirements = job?.requirements;
+  let applicationInstructions = job?.applicationInstructions;
+  let isReadOnly = true;
 
-  onMount(async () => {
-    jobId = $params.jobId;
-
-    const resp = await fetch(PUBLIC_BACKEND_BASE_URL + `/api/collections/jobs/records/${jobId}`);
-    const job = await resp.json();
-
-    user = job.user;
-    title = job.title;
-    minAnnualCompensation = job.minAnnualCompensation;
-    maxAnnualCompensation = job.maxAnnualCompensation;
-    employer = job.employer;
-    location = job.location;
-    description = job.description;
-    requirements = job.requirements;
-    applicationInstructions = job.applicationInstructions;
-  });
-
-  async function handleSubmit(event) {
+  async function handleEdit(event) {
     event.preventDefault();
 
-    const currentUserId = getUserId();
-    if (currentUserId !== user) {
-      console.error('You can only edit your own submissions.');
-      return;
-    }
-
     const data = {
-      title,
-      minAnnualCompensation,
-      maxAnnualCompensation,
-      employer,
-      location,
-      description,
-      requirements,
-      applicationInstructions
+      title: title,
+      minAnnualCompensation: minAnnualCompensation,
+      maxAnnualCompensation: maxAnnualCompensation,
+      employer: employer,
+      location: location,
+      description: description,
+      requirements: requirements,
+      applicationInstructions: applicationInstructions
     };
 
-    const resp = await fetch(PUBLIC_BACKEND_BASE_URL + `/api/collections/jobs/records/${jobId}`, {
+    const resp = await fetch(`${PUBLIC_BACKEND_BASE_URL}/api/collections/jobs/records/${id}`, {
       method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': getTokenFromLocalStorage() 
+      },
+      body: JSON.stringify(data),
     });
 
+    console.log('Server response:', resp);
+
     if (resp.ok) {
-      goto(`/jobs/${jobId}`);
+      console.log('Job data:', job);
+      goto(`/`);
     } else {
       console.error('Update failed:', resp.status);
     }
   }
 </script>
-  
-    <style>
-      .error-message {
-        color: red;
-      }
-    </style>
+
+<input type="text" bind:value={id}/>
     
     <h1 class="text-center text-xl font-bold">Job Submission</h1>
     
-    <div class="flex justify-center items-center mt-8">
+
       <form on:submit={handleEdit} class="w-1/3">
         <div class="form-control w-full">
           <label class="label" for="title">
@@ -137,17 +115,10 @@
           <small>At least 10 characters</small>
         </div>
     
-        {#if formErrors.general}
-          <p class="error-message">{formErrors.general}</p>
-        {/if}
     
         <div class="form-control w-full mt-4">
-          {#if isSubmitting}
-            <button class="btn btn-md"><Circle size="30" color="white" unit="px" duration="1s"/>Submit</button>
-            {:else}
             <button class="btn btn-md">Submit</button>
-            {/if}
+            
   
         </div>
       </form>
-    </div>

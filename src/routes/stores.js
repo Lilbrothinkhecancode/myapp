@@ -6,3 +6,4 @@ const initialUser = {
   };
 
   export const user = writable(initialUser);
+  export const id = writable('');

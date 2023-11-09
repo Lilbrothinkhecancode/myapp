@@ -10,16 +10,26 @@
     margin-bottom: 20px;
     padding: 2px 2px;
 }
-    .button-container button {
-        transition: background-color 0.5s;
-      }
+.button-container button {
+    transition: background-color 0.5s;
+}
     
-      .button-container button:hover {
-        background-color: darkblue;
-      }
-  
+.button-container button:hover {
+    background-color: darkblue;
+}
 
+.lower-content {
+    margin-top: 130px;
+}
+.lower-content a {
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.5s;
+}
 
+.lower-content a:hover {
+    background-color: darkblue; /* Text color when hovering */
+}
 .main-button {
     display: flex;
     justify-content: center;
