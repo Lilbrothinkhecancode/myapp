@@ -1,6 +1,6 @@
 <script>
   import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
-  import { getUserId } from '/home/ulyger/html/myapp/src/utils/auth.js';
+  import { getUserId } from '/src/utils/auth.js';
   import { goto } from '$app/navigation';
   import { Circle } from 'svelte-loading-spinners'
 

@@ -11,9 +11,9 @@ export async function load({ fetch, params }) {
   const res = await resp.json();
   if (resp.status == 200) {
     console.log("Data loaded successfully in page.js")
-    console.log("Response data:", res.id);
+    console.log("Response data:", res);
     return {
-      job: res,
+      jobs: res,
     }
   } else {
     return {

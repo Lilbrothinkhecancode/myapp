@@ -3,11 +3,19 @@
     import SvelteMarkdown from 'svelte-markdown';
     import humanize from 'humanize-plus';
     import { getUserId } from '../../../utils/auth.js';
+    import { goto } from '$app/navigation';
     export let data;
     
     let isUser = getUserId();
-
+    
+    function navigateToMainPage() {
+    goto('/');
+  }
 </script>
+
+<div class="main-button">
+    <button class="main-button theme-button" on:click={navigateToMainPage}> UNEMPLOYED.COM 🔥</button>
+  </div>
 
 <div class="mt-10">
     <div class="flex">

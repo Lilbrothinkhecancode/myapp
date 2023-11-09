@@ -1,19 +1,23 @@
 <script>
-  export let job;
-  console.log("Data received in page.svelte: job =", job);
   import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
-  import { getTokenFromLocalStorage } from '/home/ulyger/html/myapp/src/utils/auth.js';
+  import { getTokenFromLocalStorage } from '/src/utils/auth.js';
   import { goto } from '$app/navigation';
+  export let data;
+  console.log(data.jobs.id);
 
-  let id = job?.id;
-  let title = job?.title;
-  let minAnnualCompensation = job?.minAnnualCompensation;
-  let maxAnnualCompensation = job?.maxAnnualCompensation;
-  let employer = job?.employer;
-  let location = job?.location;
-  let description = job?.description;
-  let requirements = job?.requirements;
-  let applicationInstructions = job?.applicationInstructions;
+  let id = data.jobs.id;
+  let title = data.jobs.title;
+  let minAnnualCompensation = data.jobs.minAnnualCompensation;
+  let maxAnnualCompensation = data.jobs.maxAnnualCompensation;
+  let employer = data.jobs.employer;
+  let location = data.jobs.location;
+  let description = data.jobs.description;
+  let requirements = data.jobs.requirements;
+  let applicationInstructions = data.jobs.applicationInstructions;
+
+  function navigateToMainPage() {
+    goto('/');
+  }
 
   async function handleEdit(event) {
     event.preventDefault();
@@ -41,7 +45,6 @@
     console.log('Server response:', resp);
 
     if (resp.ok) {
-      console.log('Job data:', job);
       goto(`/`);
     } else {
       console.error('Update failed:', resp.status);
@@ -49,7 +52,9 @@
   }
 </script>
 
-<input type="text" bind:value={id}/><small>the user gotta put the id themselves lol idk how to do it I tried</small>
+<div class="main-button">
+  <button class="main-button theme-button" on:click={navigateToMainPage}> UNEMPLOYED.COM 🔥</button>
+</div>
     
     <h1 class="text-center text-xl font-bold">Job Submission</h1>
     

@@ -1,6 +1,6 @@
 <script>
-  import { authenticateUser } from '/home/ulyger/html/myapp/src/utils/auth.js';
-  import { IsLoggedIn } from '/home/ulyger/html/myapp/src/routes/stores.js';
+  import { authenticateUser } from '/src/utils/auth.js';
+  import { IsLoggedIn } from '../../stores.js';
   import { goto } from '$app/navigation';
   import { Circle } from 'svelte-loading-spinners';
 
@@ -20,6 +20,7 @@
 
     if (result.success) {
       IsLoggedIn.set(true);
+      localStorage.setItem('isLoggedIn', 'true');
       console.log('Login successful');
       window.alert('Login succesful!');
       goto('/');

@@ -1,11 +1,20 @@
 <script>
+    import { onMount } from 'svelte';
     import { IsLoggedIn } from './stores.js';
-    import { logOut } from '/home/ulyger/html/myapp/src/utils/auth.js';
+    import { logOut } from '../utils/auth.js';
     import { goto } from '$app/navigation';
     import buttonTextColor from './themes.svelte';
     import ThemeToggle from './themes.svelte';
     import humanize from 'humanize-plus';
     export let data;
+    console.log(data.jobs);
+
+    onMount(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'true') {
+      IsLoggedIn.set(true);
+    }
+    });
 
     function navigateToMainPage() {
         goto('/')
@@ -17,10 +26,10 @@
 
     function navigateLogOut() {
     logOut();
+    localStorage.removeItem('isLoggedIn');
     IsLoggedIn.set(false);
-    console.log('Log Out button clicked');
     goto('users/login');
-  }
+    }
 
     function navigateToLogin() {
     goto('users/login');
