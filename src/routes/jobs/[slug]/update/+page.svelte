@@ -14,7 +14,6 @@
   let description = job?.description;
   let requirements = job?.requirements;
   let applicationInstructions = job?.applicationInstructions;
-  let isReadOnly = true;
 
   async function handleEdit(event) {
     event.preventDefault();
@@ -50,7 +49,7 @@
   }
 </script>
 
-<input type="text" bind:value={id}/>
+<input type="text" bind:value={id}/><small>the user gotta put the id themselves lol idk how to do it I tried</small>
     
     <h1 class="text-center text-xl font-bold">Job Submission</h1>
     
