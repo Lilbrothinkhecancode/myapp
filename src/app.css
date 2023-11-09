@@ -28,7 +28,7 @@
 }
 
 .lower-content a:hover {
-    background-color: darkblue; /* Text color when hovering */
+    background-color: darkblue;
 }
 .main-button {
     display: flex;
