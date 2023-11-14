@@ -15,10 +15,6 @@
   let requirements = data.jobs.requirements;
   let applicationInstructions = data.jobs.applicationInstructions;
 
-  function navigateToMainPage() {
-    goto('/');
-  }
-
   async function handleEdit(event) {
     event.preventDefault();
 
@@ -52,9 +48,6 @@
   }
 </script>
 
-<div class="main-button">
-  <button class="main-button theme-button" on:click={navigateToMainPage}> UNEMPLOYED.COM 🔥</button>
-</div>
     
     <h1 class="text-center text-xl font-bold">Job Submission</h1>
     

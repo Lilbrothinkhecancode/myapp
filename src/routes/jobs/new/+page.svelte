@@ -17,10 +17,6 @@
 
   let formErrors = {};
 
-  function navigateToMainPage() {
-    goto('/');
-  }
-
   async function handleSubmit(event) {
     event.preventDefault();
     isSubmitting = true;
@@ -64,11 +60,6 @@
 
 </script>
 
-
-  <div class="main-button">
-    <button class="main-button theme-button" on:click={navigateToMainPage}> UNEMPLOYED.COM 🔥</button>
-  </div>
-  
   <style>
     .error-message {
       color: red;

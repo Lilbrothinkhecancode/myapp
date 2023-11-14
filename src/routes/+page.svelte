@@ -1,10 +1,6 @@
 <script>
     import { onMount } from 'svelte';
     import { IsLoggedIn } from './stores.js';
-    import { logOut } from '../utils/auth.js';
-    import { goto } from '$app/navigation';
-    import buttonTextColor from './themes.svelte';
-    import ThemeToggle from './themes.svelte';
     import humanize from 'humanize-plus';
     export let data;
     console.log(data.jobs);
@@ -14,63 +10,9 @@
     if (isLoggedIn === 'true') {
       IsLoggedIn.set(true);
     }
-    });
-
-    function navigateToMainPage() {
-        goto('/')
-    }
-    
-    function navigateToJobSubmission() {
-        goto('jobs/new')
-    }
-
-    function navigateLogOut() {
-    logOut();
-    localStorage.removeItem('isLoggedIn');
-    IsLoggedIn.set(false);
-    goto('users/login');
-    }
-
-    function navigateToLogin() {
-    goto('users/login');
-  }
-
-    function navigateToSignUp() {
-    goto('users/new');
-  }
+    });    
   </script>
   
-  <div>
-    <ThemeToggle />
-  </div>
-
-  <div class="main-button">
-    <button class="main-button theme-button" on:click={navigateToMainPage} style="color: {buttonTextColor}"> UNEMPLOYED.COM 🔥</button>
-  </div>
-  
-
-  <div class="button-container theme-button">
-    {#if $IsLoggedIn}
-    <button class="button theme-button" on:click={navigateToJobSubmission} style="color: {buttonTextColor}">
-      Post a Job
-    </button>
-    
-    <button class="button theme-button" on:click={navigateLogOut} style="color: {buttonTextColor}">
-      Log Out
-    </button>
-  
-    {:else}
-    <button class="button theme-button" on:click={navigateToSignUp} style="color: {buttonTextColor}">
-      Post a Job
-    </button>
-    
-    <button class="button theme-button" on:click={navigateToLogin} style="color: {buttonTextColor}">
-      Log In
-    </button>
-    {/if}
-  </div>
-  
-
   <h1 class="text-center text-xl font-bold">Find Your Next Job</h1>
   
   <div class="overflow-x-auto w-full">

@@ -9,14 +9,10 @@
   let error = '';
   let isSubmitting = false;
 
-  function navigateToMainPage() {
-    goto('/');
-  }
-
   async function handleLogin() {
     isSubmitting = true;
 
-    const result = await authenticateUser(username, password);
+  const result = await authenticateUser(username, password);
 
     if (result.success) {
       IsLoggedIn.set(true);
@@ -32,10 +28,6 @@
     isSubmitting = false;
   }
 </script>
-
-<div class="main-button">
-  <button class="main-button theme-button" on:click={navigateToMainPage}> UNEMPLOYED.COM 🔥</button>
-</div>
 
 <h1 class="text-center text-xl font-bold">Login</h1>
 

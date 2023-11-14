@@ -8,14 +8,8 @@
     
     let isUser = getUserId();
     
-    function navigateToMainPage() {
-    goto('/');
-  }
 </script>
 
-<div class="main-button">
-    <button class="main-button theme-button" on:click={navigateToMainPage}> UNEMPLOYED.COM 🔥</button>
-  </div>
 
 <div class="mt-10">
     <div class="flex">

@@ -4,10 +4,6 @@
     import { authenticateUser } from '/src/utils/auth.js';
     let formErrors = {};
 
-    function navigateToMainPage() {
-        goto('/')
-    }
-  
     function postSignUp() {
       const successMessage = "Sign-up successful!";
       window.alert(successMessage);
@@ -53,11 +49,6 @@
     }
   </script>
 
-<div class="main-button">
-  <button class="main-button" on:click={navigateToMainPage}> UNEMPLOYED.COM 🔥
- </button>
-</div>
-  
   <h1 class="text-center text-xl">Create an Account to Post a Job</h1>
   <div class="text-center">
       <a class="link-hover italic text-xs" href="/users/login">Already have an account? Click here to login instead.</a>
