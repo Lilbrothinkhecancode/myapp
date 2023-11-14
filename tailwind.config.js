@@ -7,8 +7,9 @@ export default {
   plugins: [require("daisyui"),
   require('@tailwindcss/typography'),],
   daisyui: {
-    themes: ["cmyk", "dracula"],
-    darkTheme: "dracula",},
+    themes: ["nord", "dracula"],
+    darkTheme: "dracula",
+    lightTheme: "nord"},
 }
 
 

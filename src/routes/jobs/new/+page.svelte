@@ -49,7 +49,7 @@
     const responseJson = JSON.parse(responseText);
   const id = responseJson.id;
   const url = `/jobs/${id}`;
-  navigateToMainPage();
+  goto('/');
   goto(url, { replace: true });
     window.alert('Job Submitted!');
   } else {
@@ -72,14 +72,14 @@
     <form on:submit={handleSubmit} class="w-1/3">
       <div class="form-control w-full">
         <label class="label" for="title">
-          <span class="label-text">Job Title</span>
+          <span>Job Title</span>
         </label>
         <input type="text" bind:value={title} required class="input input-bordered w-full" />
       </div>
   
       <div class="form-control w-full">
         <label class="label" for="minAnnualCompensation">
-          <span class="label-text">Min Annual Compensation</span>
+          <span>Min Annual Compensation</span>
         </label>
         <input type="number" bind:value={minAnnualCompensation} required class="input input-bordered w-full" />
         <small>USD min. 1000</small>
@@ -87,7 +87,7 @@
   
       <div class="form-control w-full">
         <label class="label" for="maxAnnualCompensation">
-          <span class="label-text">Max Annual Compensation</span>
+          <span>Max Annual Compensation</span>
         </label>
         <input type="number" bind:value={maxAnnualCompensation} required class="input input-bordered w-full" />
         <small>USD min. 1000</small>
@@ -95,35 +95,35 @@
   
       <div class="form-control w-full">
         <label class="label" for="employer">
-          <span class="label-text">Company Name</span>
+          <span>Company Name</span>
         </label>
         <input type="text" bind:value={employer} required class="input input-bordered w-full" />
       </div>
   
       <div class="form-control w-full">
         <label class="label" for="location">
-          <span class="label-text">Job Location</span>
+          <span>Job Location</span>
         </label>
         <input type="text" bind:value={location} required class="input input-bordered w-full" />
       </div>
   
       <div class="form-control w-full">
         <label class="label" for="description">
-          <span class="label-text">Description</span>
+          <span>Description</span>
         </label>
         <textarea bind:value={description} required class="input input-bordered w-full" />
       </div>
   
       <div class="form-control w-full">
         <label class="label" for="requirements">
-          <span class="label-text">Requirements</span>
+          <span>Requirements</span>
         </label>
         <textarea bind:value={requirements} required class="input input-bordered w-full" />
       </div>
   
       <div class="form-control w-full">
         <label class="label" for="applicationInstructions">
-          <span class="label-text">Application Instructions</span>
+          <span>Application Instructions</span>
         </label>
         <textarea bind:value={applicationInstructions} required class="input input-bordered w-full" />
         <small>At least 10 characters</small>

@@ -3,7 +3,6 @@
     import SvelteMarkdown from 'svelte-markdown';
     import humanize from 'humanize-plus';
     import { getUserId } from '../../../utils/auth.js';
-    import { goto } from '$app/navigation';
     export let data;
     
     let isUser = getUserId();
@@ -20,7 +19,7 @@
     </div>
 
     <div class="flex flex-row w-full mt-8">
-        <div class="basis-2/3 prose max-w-none w-full">
+        <div class="basis-2/3 max-w-none w-full">
             <h2 class="text-xl font-thin">Description</h2>
             <SvelteMarkdown source={data.job.description} />
             <div class="mt-6" />
@@ -30,7 +29,7 @@
             <h2 class="text-xl font-thin">How to Apply?</h2>
             <p>{data.job.applicationInstructions}</p>
         </div>
-        <div class="basis-1/3 ml-4">
+        <div class="basis-1/3 ml-4" style="margin-left: 300px;">
             <h2 class="text-xl font-thin">Location</h2>
             <p>{data.job.location}</p>
             <div class="mt-6" />

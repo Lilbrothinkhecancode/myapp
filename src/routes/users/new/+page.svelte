@@ -57,7 +57,7 @@
       <form on:submit={createUser} class="w-1/3">
           <div class="form-control w-full">
               <label class="label" for="username">
-                  <span class="label-text">Username</span>
+                  <span>Username</span>
               </label>
               <input type="text" name="username" placeholder="johndoe" class="input input-bordered w-full" />
               {#if 'username' in formErrors}
@@ -69,7 +69,7 @@
   
           <div class="form-control w-full">
               <label class="label" for="email">
-                  <span class="label-text">Email</span>
+                  <span>Email</span>
               </label>
               <input type="email" name="email" placeholder="john@example.com" class="input input-bordered w-full" required />
               {#if 'email' in formErrors}
@@ -81,7 +81,7 @@
   
           <div class="form-control w-full">
               <label class="label" for="password">
-                  <span class="label-text">Password</span>
+                  <span>Password</span>
               </label>
               <input type="password" name="password" placeholder="" class="input input-bordered w-full" required />
               {#if 'password' in formErrors}
@@ -93,7 +93,7 @@
   
           <div class="form-control w-full">
               <label class="label" for="password">
-                  <span class="label-text">Confirm Password</span>
+                  <span>Confirm Password</span>
               </label>
               <input type="password" name="password-confirmation" placeholder="" class="input input-bordered w-full" required />
               {#if 'password' in formErrors}

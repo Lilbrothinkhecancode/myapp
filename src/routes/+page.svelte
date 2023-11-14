@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import { IsLoggedIn } from './stores.js';
+    import { IsLoggedIn } from '../utils/stores.js';
     import humanize from 'humanize-plus';
     export let data;
     console.log(data.jobs);

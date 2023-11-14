@@ -3,12 +3,36 @@
 @tailwind utilities;
 
 
+:root {
+    --color-default: #fff;
+  }
+  @media (prefers-color-scheme: dark){
+      :root{
+          --color-default: #252b30;
+      }
+  }
+  [data-theme='dark'] {
+    --color-default: #252b30;
+    color: white;
+  }
+  [data-theme='white'] {
+    --color-default: white;
+    color: black;
+  }
+  body {
+      background-color: var(--color-default);
+      min-height: 100vh;
+  }
 
+  input, textarea {
+    color: white;
+  }
+
+  
 .button-container {
     display: flex;
     justify-content: flex-end; 
     margin-bottom: 20px;
-    padding: 2px 2px;
 }
 .button-container button {
     transition: background-color 0.5s;
@@ -22,7 +46,6 @@
     margin-top: 130px;
 }
 .lower-content a {
-    color: white;
     text-decoration: none;
     transition: background-color 0.5s;
 }
@@ -32,10 +55,8 @@
 }
 .main-button {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     margin-bottom: 1px;
-    color: white;
-    font-size: 35px;
     padding: 2px 2px;
 }
 

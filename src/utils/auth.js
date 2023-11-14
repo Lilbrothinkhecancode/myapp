@@ -1,6 +1,6 @@
 
 import { PUBLIC_BACKEND_BASE_URL } from '$env/static/public';
-import { IsLoggedIn } from '../routes/stores';
+import { IsLoggedIn } from '../utils/stores.js';
 
 const emptyAuth = {
   "token": "",
