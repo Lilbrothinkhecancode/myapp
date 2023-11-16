@@ -1,6 +1,7 @@
 <script>
   import { authenticateUser } from '/src/utils/auth.js';
   import { IsLoggedIn } from '/src/utils/stores.js';
+  import { isLoggedIn } from '/src/utils/auth.js';
   import { goto } from '$app/navigation';
   import { Circle } from 'svelte-loading-spinners';
 

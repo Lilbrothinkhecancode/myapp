@@ -48,42 +48,43 @@
     }
   </style>
 
-<div class="main-button">
-  <button class="main-button theme-button custom-font" on:click={navigateToMainPage} style="font-size: 30px;">
-    UNEMPLOYED.COM 🔥💯</button>
+<div class="top-bar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px">
+  <div class="main-button">
+    <button class="main-button theme-button custom-font" on:click={navigateToMainPage} style="font-size: 30px; margin-left: 20px;">
+      unemployed.com</button>
+  </div>
+
+  <div class="button-container" style="display: flex; margin-top: 20px; font-size: 18px">
+    {#if $IsLoggedIn}
+    <button class="button" on:click={navigateToJobSubmission} style="margin-right: 40px;">
+      Post a Job
+    </button>
+    
+    <button class="button" on:click={navigateLogOut} style="margin-right: 40px;">
+      Log Out
+    </button>
+
+    {:else}
+    <button class="button" on:click={navigateToSignUp} style="margin-right: 40px;">
+      Post a Job
+    </button>
+    
+    <button class="button" on:click={navigateToLogin} style="margin-right: 40px;">
+      Log In
+    </button>
+    {/if}
+  </div>
 </div>
 
 
-<div class="m-5"  style="margin-left: 1360px;">
-	🌚
-	<div class="inline-block w-10">
-		<span data-toggle-theme="white" data-act-class="pl-4" class="border rounded-full border-black flex items-center cursor-pointer w-10 transition-all duration-300 ease-in-out pl-0">
-			<span class="rounded-full w-3 h-3 m-1 bg-black">
-			</span>
-		</span>
-	</div>
-	🌞
+<div class="theme-switcher" style="display: flex; align-items: right; margin-left: 1340px">
+  🌚
+  <div class="inline-block w-10">
+    <span data-toggle-theme="white" data-act-class="pl-4" class="border rounded-full border-black flex items-center cursor-pointer w-10 transition-all duration-300 ease-in-out pl-0">
+      <span class="rounded-full w-3 h-3 m-1 bg-black">
+      </span>
+    </span>
+  </div>
+  🌞
 </div>
-
-<div class="button-container theme-button">
-  {#if $IsLoggedIn}
-  <button class="button theme-button" on:click={navigateToJobSubmission} style="margin-right: 40px; font-size: 20px;">
-    Post a Job
-  </button>
-  
-  <button class="button theme-button" on:click={navigateLogOut} style="margin-right: 40px; font-size: 20px;">
-    Log Out
-  </button>
-
-  {:else}
-  <button class="button theme-button" on:click={navigateToSignUp} style="margin-right: 40px; font-size: 20px;">
-    Post a Job
-  </button>
-  
-  <button class="button theme-button" on:click={navigateToLogin} style="margin-right: 40px; font-size: 20px;">
-    Log In
-  </button>
-  {/if}
-</div>
-
 <slot></slot>
